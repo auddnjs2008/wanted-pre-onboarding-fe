@@ -81,12 +81,6 @@ const Auth = () => {
   );
 
   useEffect(() => {
-    if (signUpData?.statusCode === 400) {
-      alert(`${signUpData.message}`);
-      setPassword("");
-      setEmail("");
-      return;
-    }
     if (signUpData || signInData) {
       localStorage.setItem(
         "todoToken",
@@ -99,7 +93,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (signInError || signUpError) {
-      throw new Error(`${signInError || signUpError}`);
+      alert(signInError || signUpError);
     }
   }, [signInError, signUpError]);
 

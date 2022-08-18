@@ -64,7 +64,7 @@ const TodoFixItem = ({ todo, setTodos, setFixId }) => {
 
   useEffect(() => {
     if (error) {
-      throw new Error(error);
+      alert(error);
     }
   }, [error]);
 

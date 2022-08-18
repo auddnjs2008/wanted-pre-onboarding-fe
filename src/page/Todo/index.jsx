@@ -16,7 +16,7 @@ const Todo = () => {
 
   useEffect(() => {
     if (error) {
-      throw new Error(error);
+      alert(error);
     }
   }, [error]);
 

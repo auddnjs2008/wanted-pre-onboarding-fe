@@ -56,7 +56,7 @@ const TodoForm = ({ setTodos }) => {
 
   useEffect(() => {
     if (error) {
-      throw new Error(error);
+      alert(error);
     }
   }, [error]);
 

@@ -27,7 +27,11 @@ const useFetch = (method, url) => {
 
     fetch(api + url + `/${urlId}`, fetchOption)
       .then((result) => (method === "DELETE" ? result : result.json()))
-      .then((data) => setState({ ...state, loading: false, data }))
+      .then((data) => {
+        data.statusCode >= 400
+          ? setState({ ...state, loading: false, error: data.message })
+          : setState({ ...state, loading: false, data });
+      })
       .catch((error) => setState({ ...state, loading: false, error }));
   };
   return [mutate, { ...state }, setState];

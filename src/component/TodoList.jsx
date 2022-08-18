@@ -75,7 +75,7 @@ const TodoList = ({ todos, setTodos }) => {
 
   useEffect(() => {
     if (error || deleteError) {
-      throw new Error(error || deleteError);
+      alert(error || deleteError);
     }
   }, [error, deleteError]);
 
