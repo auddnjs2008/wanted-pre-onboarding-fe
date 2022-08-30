@@ -11,11 +11,11 @@ import {
   Wrapper,
 } from "./style";
 
-const Auth = () => {
+const Auth = ({ setLoginToken }) => {
   const [authState, setAuthState] = useState("signIn");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginToken, setLoginToken] = useLogin();
+  // const [loginToken, setLoginToken] = useLogin();
   const navigate = useNavigate();
   const [
     signInMutate,
@@ -87,7 +87,7 @@ const Auth = () => {
         JSON.stringify(signUpData || signInData)
       );
       setLoginToken(signUpData || signInData);
-      window.location.href = "/todo";
+      // window.location.href = "/todo";
     }
   }, [signUpData, signInData, navigate]);
 

@@ -47,4 +47,4 @@ const TodoItem = ({ todo }) => {
   );
 };
 
-export default TodoItem;
+export default React.memo(TodoItem);

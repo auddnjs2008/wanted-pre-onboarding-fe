@@ -6,7 +6,7 @@ import Auth from "./page/Auth";
 import Todo from "./page/Todo";
 
 function App() {
-  const [loginToken] = useLogin();
+  const [loginToken, setLoginToken] = useLogin();
 
   return (
     <BrowserRouter>
@@ -14,7 +14,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={loginToken ? <Navigate to="/todo"></Navigate> : <Auth />}
+          element={
+            loginToken ? (
+              <Navigate to="/todo"></Navigate>
+            ) : (
+              <Auth setLoginToken={setLoginToken} />
+            )
+          }
         />
         <Route
           path="/todo"
